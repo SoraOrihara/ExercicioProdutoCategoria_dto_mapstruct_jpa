@@ -9,6 +9,7 @@ import java.util.UUID;
 
 import org.springframework.data.annotation.CreatedDate;
 
+import br.com.springEstudo.ProdutoCategoria.seeder.Auditable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,7 +22,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="tb_product")
-public class ProductEntity implements Serializable {
+public class ProductEntity extends Auditable implements Serializable  {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -37,8 +38,7 @@ public class ProductEntity implements Serializable {
 	@Column(name="preco",nullable = false)
 	private Double preco;
 	
-	@CreatedDate
-	private Instant criadoEm;
+
 	
 	@ManyToMany
 	@JoinTable(
@@ -120,9 +120,6 @@ public class ProductEntity implements Serializable {
 
 
 
-	public Instant getCriadoEm() {
-		return criadoEm;
-	}
 
 
 

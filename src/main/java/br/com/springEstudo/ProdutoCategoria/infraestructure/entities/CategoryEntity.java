@@ -11,6 +11,7 @@ import org.springframework.data.annotation.CreatedDate;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import br.com.springEstudo.ProdutoCategoria.seeder.Auditable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -22,7 +23,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="tb_category")
-public class CategoryEntity implements Serializable{
+public class CategoryEntity extends Auditable implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -31,9 +32,6 @@ public class CategoryEntity implements Serializable{
 	
 	@Column(name="nome",unique=true,nullable=false)
 	private String nome;
-	
-	@CreatedDate
-	private Instant criadoEm;
 	
 	
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
@@ -60,9 +58,6 @@ public class CategoryEntity implements Serializable{
 		return id;
 	}
 
-	public Instant getCriadoEm() {
-		return criadoEm;
-	}
 
 	public CategoryEntity() {
 		super();
