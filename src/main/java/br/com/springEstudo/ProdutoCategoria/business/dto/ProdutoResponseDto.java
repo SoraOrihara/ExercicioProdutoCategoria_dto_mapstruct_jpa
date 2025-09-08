@@ -1,9 +1,9 @@
 package br.com.springEstudo.ProdutoCategoria.business.dto;
 
-import java.time.Instant;
+
 import java.util.Set;
 import java.util.UUID;
 
-public record ProdutoResponseDto(UUID id, String nome, Double preco, Integer quantidade, Set<CategoryReferenceDto> categorias,Instant criadoEm) {
+public record ProdutoResponseDto(UUID id, String nome, Double preco, Integer quantidade, Set<CategoryReferenceDto> categorias) {
 
 }
