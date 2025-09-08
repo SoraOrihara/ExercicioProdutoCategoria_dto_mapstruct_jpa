@@ -40,8 +40,6 @@ public class ProductEntity implements Serializable {
 	@CreatedDate
 	private Instant criadoEm;
 	
-	
-	
 	@ManyToMany
 	@JoinTable(
 			name="tb_product_category",
