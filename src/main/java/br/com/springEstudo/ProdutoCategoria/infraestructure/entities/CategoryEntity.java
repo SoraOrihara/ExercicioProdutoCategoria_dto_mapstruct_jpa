@@ -60,6 +60,10 @@ public class CategoryEntity implements Serializable{
 		return id;
 	}
 
+	public Instant getCriadoEm() {
+		return criadoEm;
+	}
+
 	public CategoryEntity() {
 		super();
 	}

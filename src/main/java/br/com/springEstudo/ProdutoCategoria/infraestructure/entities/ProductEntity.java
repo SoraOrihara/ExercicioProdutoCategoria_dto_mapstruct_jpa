@@ -120,6 +120,12 @@ public class ProductEntity implements Serializable {
 
 
 
+	public Instant getCriadoEm() {
+		return criadoEm;
+	}
+
+
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(categorias, id, nome);
