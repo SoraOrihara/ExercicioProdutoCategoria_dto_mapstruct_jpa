@@ -1,13 +1,17 @@
 package br.com.springEstudo.ProdutoCategoria.infraestructure.entities;
 
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
+import org.springframework.data.annotation.CreatedDate;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -25,7 +29,12 @@ public class CategoryEntity implements Serializable{
 	@GeneratedValue(strategy=GenerationType.UUID)
 	private UUID id;
 	
+	@Column(name="nome",unique=true,nullable=false)
 	private String nome;
+	
+	@CreatedDate
+	private Instant criadoEm;
+	
 	
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	@ManyToMany(mappedBy = "categorias",fetch=FetchType.LAZY)

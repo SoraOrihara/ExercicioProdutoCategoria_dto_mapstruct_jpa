@@ -1,10 +1,13 @@
 package br.com.springEstudo.ProdutoCategoria.infraestructure.entities;
 
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
+
+import org.springframework.data.annotation.CreatedDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -33,6 +36,10 @@ public class ProductEntity implements Serializable {
 	
 	@Column(name="preco",nullable = false)
 	private Double preco;
+	
+	@CreatedDate
+	private Instant criadoEm;
+	
 	
 	
 	@ManyToMany
